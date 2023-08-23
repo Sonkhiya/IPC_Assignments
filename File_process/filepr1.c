@@ -1,38 +1,39 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void input(int *s, int *a)
+void input(int *a, int *b)
 {
-    scanf("%d", s);
+    scanf("%d", a);
 
-    for (int i = 0; i < *s; i++)
+    for (int i = 0; i < *a; i++)
     {
-        scanf("%d", a + i);
+        scanf("%d", b + i);
     }
     return;
 }
 
-void write(int s, int *arr)
+
+void updates(int a)
+{
+    FILE *fptr = fopen("./file.txt", "w");
+
+    fprintf(fptr, "%d", a);
+    fclose(fptr);
+
+    return;
+}
+
+void write(int a, int *arr)
 {
     FILE *fptr = fopen("./arr.txt", "w");
 
     // writing in file.....
-    for (int i = 0; i < s; i++)
+    for (int i = 0; i < a; i++)
     {
         fprintf(fptr, "%d ", arr[i]);
     }
 
     fclose(fptr);
-    return;
-}
-
-void update1(int signaCode)
-{
-    FILE *fptr = fopen("./file.txt", "w");
-
-    fprintf(fptr, "%d", signaCode);
-    fclose(fptr);
-
     return;
 }
 
@@ -67,15 +68,15 @@ void printarr()
 
 int main()
 {
-    update1(0);
+    updates(0);
 
     int a;
     int *ar = (int *)malloc(sizeof(int) * a);
 
-    input(&a, ar); // takes input in inpSize and inpArr.....
+    input(&a, ar);
 
     write(a, ar);
-    update1(1);
+    updates(1);
 
     while (read() != 0)
     {
