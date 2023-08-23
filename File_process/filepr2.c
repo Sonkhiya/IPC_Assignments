@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-void swap(int* xp, int* yp)
+void swap(int* a, int* b)
 {
-    int temp = *xp;
-    *xp = *yp;
-    *yp = temp;
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }
 
 void sort(int *arr, int n)
