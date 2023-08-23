@@ -2,10 +2,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-
-#include <stdbool.h>
-#include <stdio.h>
-
 void swap(int* xp, int* yp)
 {
     int temp = *xp;
