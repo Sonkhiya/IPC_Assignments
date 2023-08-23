@@ -27,11 +27,11 @@ void sort(int *arr, int n)
     }
 }
 
-void updates(int signaCode)
+void updates(int a)
 {
     FILE *fptr = fopen("./file.txt", "w");
 
-    fprintf(fptr, "%d", signaCode);
+    fprintf(fptr, "%d", a);
     fclose(fptr);
 
     return;
@@ -39,15 +39,15 @@ void updates(int signaCode)
 
 int read()
 {
-    int signal;
+    int s;
     FILE *fptr = fopen("./file.txt", "r");
-    fscanf(fptr, "%d", &signal);
+    fscanf(fptr, "%d", &s);
 
     fclose(fptr);
-    return signal;
+    return s;
 }
 
-void readFile(int *arr, int size)
+void readFile(int *arr, int l)
 {   
     int a = 0;
     FILE *fptr = fopen("./arr.txt", "r");
@@ -60,11 +60,11 @@ void readFile(int *arr, int size)
     fclose(fptr);
 }
 
-void write(int size, int *arr)
+void write(int l, int *arr)
 {
     FILE *fptr = fopen("./arr.txt", "w");
 
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < l; i++)
     {
         fprintf(fptr, "%d ", arr[i]);
     }
@@ -82,13 +82,13 @@ int main()
     {
     }
 
-    int size = 5;
-    int* arr = (int*)malloc(sizeof(int) * size);
-    readFile(arr, size);
+    int l = 5;
+    int* arr = (int*)malloc(sizeof(int) * l);
+    readFile(arr, l);
 
-    sort(arr, size);
+    sort(arr, l);
 
-    write(size, arr);
+    write(l, arr);
     
     updates(0);
 }
